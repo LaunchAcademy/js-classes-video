@@ -22,8 +22,26 @@ class MusicPlayer {
 
   playSong(song){
     this.playing = true
+    console.log(`Now Playing: ${song.summary()}`)
+    this.songsPlayed.push(song)
+  }
+}
+
+class Song {
+  constructor(title, artist) {
+    this.title = title
+    this.artist = artist
+  }
+
+  summary() {
+    return `${this.artist} - "${this.title}"`
   }
 }
 
 let launchora = new MusicPlayer()
-launchora.playSong('Never Gonna Give You Up')
+let bestSongEver = new Song('Never Gonna Give You Up', 'Rick Astley')
+launchora.playSong(bestSongEver)
+
+debugger
+launchora.pause()
+debugger
